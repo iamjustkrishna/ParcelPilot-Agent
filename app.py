@@ -11,9 +11,18 @@ if not os.path.exists("chroma_db"):
     from backend.rag.ingest import ingest_documents
     ingest_documents()
 
-# Mount FastAPI app into Gradio (port 7860 is default on HF Spaces)
-app_gradio = gr.mount_gradio_app(app, gr.Blocks(title="ParcelPilot AI"), path="/")
+# Create top-level demo object for Hugging Face Spaces supervisor
+with gr.Blocks(title="ParcelPilot AI — Operations & Support Intelligence", fill_height=True) as demo:
+    gr.HTML("""
+    <style>
+        .gradio-container { max-width: 100% !important; padding: 0 !important; }
+        footer { display: none !important; }
+    </style>
+    <iframe src="/" style="width: 100%; height: 96vh; border: none; border-radius: 8px;"></iframe>
+    """)
+
+# Mount Gradio sub-route onto the FastAPI application
+app = gr.mount_gradio_app(app, demo, path="/gradio")
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=7860)
+    demo.launch(server_name="0.0.0.0", server_port=7860)
