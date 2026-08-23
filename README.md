@@ -1,3 +1,14 @@
+---
+title: ParcelPilot AI
+emoji: 📦
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: 4.28.3
+app_file: app.py
+pinned: false
+---
+
 # 📦 ParcelPilot AI — Dual-Context Logistics Support & Operations Copilot
 
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
