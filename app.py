@@ -25,4 +25,5 @@ with gr.Blocks(title="ParcelPilot AI — Operations & Support Intelligence", fil
 app = gr.mount_gradio_app(app, demo, path="/gradio")
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=7860)
