@@ -1,0 +1,22 @@
+# Environment variables and API keys
+.env
+.env.local
+.env.*.local
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Databases and Vector storage
+parcelpilot.db
+chroma_db/
+*.sqlite
+*.sqlite3
+
+# Logs and scratch files
+*.log
+*.zip
+scratch/
+.system_generated/

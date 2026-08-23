@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParcelPilot AI - Operations & Support Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation & Context Bar -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ParcelPilot <span class="brand-ai">AI</span></span>
+          <span class="brand-subtitle">Autonomous Logistics Support & Operations</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="mode-badge" id="mode-badge">
+          <span class="mode-dot"></span>
+          <span id="mode-text">Customer Portal</span>
+        </div>
+
+        <div class="persona-selector-container">
+          <label for="persona-select">Active Persona:</label>
+          <select id="persona-select" class="persona-select">
+            <optgroup label="Customer Self-Service">
+              <option value="cust_northstar" selected>Northstar Logistics (Enterprise - ACCT-001)</option>
+              <option value="cust_lumenworks">LumenWorks (Growth - ACCT-002)</option>
+              <option value="cust_beacon">Beacon Retail (Standard - ACCT-003)</option>
+              <option value="cust_axis">Axis Labs (Enterprise - ACCT-004)</option>
+            </optgroup>
+            <optgroup label="Internal Operations Console">
+              <option value="int_support">Support Agent (Maya / Rohit - Global)</option>
+              <option value="int_manager">Operations Manager (Priya Mehta - Global)</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <main class="main-layout">
+      <!-- Left Context Sidebar -->
+      <aside class="left-sidebar">
+        <div class="panel-card account-card">
+          <div class="panel-header">
+            <h3>Account Overview</h3>
+            <span class="badge" id="acc-plan-badge">Enterprise</span>
+          </div>
+          <div class="account-details">
+            <div class="detail-row">
+              <span class="label">Account ID:</span>
+              <span class="value" id="acc-id-val">ACCT-001</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Organization:</span>
+              <span class="value" id="acc-name-val">Northstar Logistics</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Assigned CSM:</span>
+              <span class="value" id="acc-csm-val">Priya Mehta</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Agreement:</span>
+              <span class="value text-accent" id="acc-agr-val">Custom Contract Active</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card quick-queries-card">
+          <div class="panel-header">
+            <h3>Assessment Scenarios</h3>
+          </div>
+          <div class="quick-prompt-list">
+            <button class="quick-btn" data-query="Can I cancel order ORD-1001? Is there any cancellation fee?">
+              <span class="q-tag">Contract Precedence</span>
+              <span class="q-text">Cancel ORD-1001 (Northstar Agreement INR 0 Fee)</span>
+            </button>
+            <button class="quick-btn" data-query="Can I cancel order ORD-1002?">
+              <span class="q-tag">Post-Pickup RTO</span>
+              <span class="q-text">Cancel ORD-1002 (Picked-Up Status Rejection)</span>
+            </button>
+            <button class="quick-btn" data-query="What is the priority, SLA status, and required action for ticket TKT-501?">
+              <span class="q-tag">SLA Breach / P1</span>
+              <span class="q-text">TKT-501 Outage (15-min SLA Breach Alert)</span>
+            </button>
+            <button class="quick-btn" data-query="Why did our CSV bulk upload fail for ticket TKT-502? What is our account limit?">
+              <span class="q-tag">Known Issue KI-208</span>
+              <span class="q-text">TKT-502 CSV Defect & Fix Resolution</span>
+            </button>
+            <button class="quick-btn" data-query="Is order ORD-2002 eligible for a failed-pickup service credit? What is the credit amount?">
+              <span class="q-tag">Service Credit</span>
+              <span class="q-text">ORD-2002 Missed Pickup (INR 300 Fixed Credit)</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center Chat & Reasoning Stage -->
+      <section class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+          <!-- Welcome Message -->
+          <div class="message assistant-message">
+            <div class="msg-avatar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="msg-content">
+              <p>Welcome to <strong>ParcelPilot AI</strong>. I am your autonomous logistics operations and support assistant.</p>
+              <p>I can help you look up shipments, verify SLA terms, evaluate service credits, diagnose operational known issues, and prepare authorized actions with explicit human confirmation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Activity & Telemetry Tray -->
+        <div class="telemetry-tray" id="telemetry-tray">
+          <div class="telemetry-header">
+            <span class="pulse-icon"></span>
+            <span class="telemetry-title">Agent Activity Stream</span>
+          </div>
+          <div class="telemetry-badges" id="telemetry-badges">
+            <!-- Dynamic Tool Badges -->
+          </div>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="chat-input-wrapper">
+          <form id="chat-form" class="chat-form">
+            <textarea id="chat-input" class="chat-input" placeholder="Ask a question, investigate a ticket, or request a shipment action..." rows="1"></textarea>
+            <button type="submit" id="send-btn" class="send-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Send</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Right Citations & Evidence Drawer -->
+      <aside class="right-sidebar">
+        <div class="panel-card citations-card">
+          <div class="panel-header">
+            <h3>Authoritative Citations</h3>
+            <span class="citation-count" id="citation-count">0 Sources</span>
+          </div>
+          <div class="citations-list" id="citations-list">
+            <div class="empty-citations">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <p>Authoritative document and contract clauses cited during reasoning will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
