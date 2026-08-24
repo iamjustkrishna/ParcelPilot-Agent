@@ -20,3 +20,6 @@ chroma_db/
 *.zip
 scratch/
 .system_generated/
+.agents/
+app.py
+docs/demo-script.md
