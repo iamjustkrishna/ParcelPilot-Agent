@@ -47,7 +47,7 @@ Fill in the settings as follows:
 * **Runtime**: `Python 3`
 * **Build Command**:
   ```bash
-  pip install -r requirements.txt && python -m backend.db.seed && python backend/rag/indexer.py
+  pip install -r requirements.txt && python -m backend.db.seed && python backend/rag/ingest.py
   ```
 * **Start Command**:
   ```bash

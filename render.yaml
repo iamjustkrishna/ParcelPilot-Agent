@@ -4,7 +4,7 @@ services:
     runtime: python
     region: singapore
     plan: free
-    buildCommand: pip install -r requirements.txt && python -m backend.db.seed && python backend/rag/indexer.py
+    buildCommand: pip install -r requirements.txt && python -m backend.db.seed && python backend/rag/ingest.py
     startCommand: uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
