@@ -17,7 +17,6 @@ if not os.path.exists("chroma_db"):
 
 from backend.agent.orchestrator import run_agent_turn
 from backend.tools.action_engine import confirm_action
-from backend.api.main import app as fastapi_app
 
 PERSONAS = {
     "Northstar Logistics (Customer — ACCT-001)": {
@@ -247,8 +246,5 @@ with gr.Blocks(title="ParcelPilot AI — Operations & Support", css=CUSTOM_CSS, 
     quick_btn2.click(lambda: "Evaluate SLA status for ticket TKT-501", None, user_input)
     quick_btn3.click(lambda: "What are our allowable service credits for failed pickups?", None, user_input)
 
-# Mount FastAPI app onto Gradio for API access
-demo.app.mount("/api", fastapi_app)
-
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    demo.launch(server_name="0.0.0.0", server_port=7860, show_api=False)
