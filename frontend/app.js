@@ -113,6 +113,7 @@ const accNameVal = document.getElementById("acc-name-val");
 const accCsmVal = document.getElementById("acc-csm-val");
 const accAgrVal = document.getElementById("acc-agr-val");
 const quickPromptList = document.getElementById("quick-prompt-list");
+const resetSystemBtn = document.getElementById("reset-system-btn");
 const chatMessages = document.getElementById("chat-messages");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
@@ -166,6 +167,51 @@ function updatePersonaUI(key) {
 personaSelect.addEventListener("change", (e) => {
   updatePersonaUI(e.target.value);
 });
+
+// Reset System State Handler
+if (resetSystemBtn) {
+  resetSystemBtn.addEventListener("click", async () => {
+    if (!confirm("Are you sure you want to reset the database and all test sessions back to initial state?")) {
+      return;
+    }
+    resetSystemBtn.classList.add("loading");
+    resetSystemBtn.querySelector("span").innerText = "Resetting...";
+
+    try {
+      const resp = await fetch("/api/system/reset", { method: "POST" });
+      const data = await resp.json();
+      if (resp.ok) {
+        // Reset chat UI
+        chatMessages.innerHTML = `
+          <div class="message assistant-message">
+            <div class="msg-avatar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="msg-content">
+              <p>Welcome to <strong>ParcelPilot AI</strong>. I am your autonomous logistics operations and support assistant.</p>
+              <p>I can help you look up shipments, verify SLA terms, evaluate service credits, diagnose operational known issues, and prepare authorized actions with explicit human confirmation.</p>
+            </div>
+          </div>
+        `;
+        // Reset persona dropdown to Northstar
+        personaSelect.value = "cust_northstar";
+        updatePersonaUI("cust_northstar");
+        appendSystemNotice("🔄 <strong>System State Reset</strong>: Database tables re-seeded and all test sessions restored to initial condition.");
+      } else {
+        alert("Failed to reset system: " + (data.detail || "Unknown error"));
+      }
+    } catch (err) {
+      alert("Error resetting system state: " + err.message);
+    } finally {
+      resetSystemBtn.classList.remove("loading");
+      resetSystemBtn.querySelector("span").innerText = "Reset Demo State";
+    }
+  });
+}
 
 // Chat submission handler
 chatForm.addEventListener("submit", (e) => {

@@ -17,6 +17,7 @@ if PROJECT_ROOT not in sys.path:
 
 from backend.db.database import SessionLocal, init_db
 from backend.db.models import Account, Order, Ticket, KnownIssue, PendingAction
+from backend.db.seed import seed_database
 from backend.agent.orchestrator import run_agent_turn
 from backend.tools.action_engine import confirm_action, cancel_pending_action
 from backend.tools.query_tools import verify_tenant_access, AuthorizationError
@@ -212,6 +213,22 @@ async def get_known_issues(auth: dict = Depends(get_auth_context)):
         return [i.to_dict() for i in issues]
     finally:
         session.close()
+
+@app.post("/api/system/reset")
+async def reset_system_state():
+    """
+    Resets the SQLite database back to its original assessment seed state,
+    clears all pending action proposals, and wipes in-memory chat session history.
+    """
+    try:
+        SESSION_STORE.clear()
+        seed_database()
+        return {
+            "status": "success",
+            "message": "Database and sessions have been reset to pristine initial assessment state."
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to reset system state: {str(e)}")
 
 # Mount frontend directory for seamless local web serving
 FRONTEND_DIR = os.path.join(PROJECT_ROOT, "frontend")

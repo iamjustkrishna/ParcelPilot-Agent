@@ -159,6 +159,46 @@ body {
   box-shadow: var(--shadow-glow);
 }
 
+.reset-system-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+  padding: 7px 13px;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.reset-system-btn:hover {
+  background: rgba(244, 63, 94, 0.2);
+  border-color: rgba(244, 63, 94, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.35);
+  transform: translateY(-1px);
+}
+
+.reset-system-btn:active {
+  transform: translateY(0);
+}
+
+.reset-system-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.reset-system-btn svg {
+  transition: transform 0.5s ease;
+}
+
+.reset-system-btn:hover svg {
+  transform: rotate(180deg);
+}
+
 /* Main Layout Grid */
 .main-layout {
   display: grid;
