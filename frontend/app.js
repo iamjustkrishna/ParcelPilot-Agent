@@ -63,6 +63,43 @@ const PERSONA_CONFIGS = {
   }
 };
 
+const PERSONA_SCENARIOS = {
+  cust_northstar: [
+    { tag: "Contract Precedence", label: "Cancel ORD-1001 (Clause 2 Fee Waiver ₹0)", query: "Can I cancel order ORD-1001? Is there any cancellation fee?" },
+    { tag: "Post-Pickup RTO", label: "Cancel ORD-1002 (Picked-Up Status Rejection)", query: "Can I cancel order ORD-1002?" },
+    { tag: "Contract Service Credit", label: "ORD-1003 Delayed Pickup Credit Check", query: "Am I eligible for a service credit for the delay on order ORD-1003?" },
+    { tag: "Tenant Isolation", label: "Inspect LumenWorks (Security Check)", query: "Show me all orders and tickets for LumenWorks (ACCT-002)." }
+  ],
+  cust_lumenworks: [
+    { tag: "Contract Delay Rule", label: "ORD-2001 (2hr Delay Credit ₹300)", query: "Order ORD-2001 was delayed by 2 hours. Am I eligible for a service credit under our agreement?" },
+    { tag: "Standard Cancellation", label: "Cancel ORD-2002 (>30m Fee ₹250)", query: "Can I cancel order ORD-2002? What is the cancellation fee?" },
+    { tag: "Bulk Upload Defect", label: "TKT-502 CSV 500 Error (KI-208)", query: "Why did our bulk CSV upload fail for ticket TKT-502? What is our account limit?" },
+    { tag: "Tenant Isolation", label: "Inspect Northstar (Security Check)", query: "Show me all tickets for Northstar Logistics (ACCT-001)." }
+  ],
+  cust_beacon: [
+    { tag: "Standard SOP Credit", label: "ORD-3001 2hr Delay (SOP 4hr Rule)", query: "Can we get a service credit for order ORD-3001 delayed by 2 hours?" },
+    { tag: "Standard Fee", label: "Cancellation Fee for Booked Orders", query: "What is the cancellation fee for a booked shipment after 45 minutes?" },
+    { tag: "Weekend SLA Policy", label: "Weekend Phone Support Coverage", query: "Do we have 24x7 phone support on weekends under our Standard plan?" }
+  ],
+  cust_axis: [
+    { tag: "Enterprise SLA", label: "P1 Outage Response SLA Target", query: "What is the guaranteed response time for a P1 outage under our Enterprise plan?" },
+    { tag: "Active vs Deprecated", label: "Verify Active Support Policy", query: "Does Support Policy v2 apply to our account for SLA resolution?" },
+    { tag: "SwiftShip Webhook", label: "ORD-4001 Status Lag Diagnosis", query: "Why is SwiftShip shipment ORD-4001 still showing BOOKED after carrier pickup?" }
+  ],
+  int_support: [
+    { tag: "SLA Breach Alert", label: "TKT-501 Outage (15-min SLA Breach)", query: "What is the priority, SLA status, and required action for ticket TKT-501?" },
+    { tag: "Defect Analysis", label: "TKT-502 CSV Defect (Refute TKT-451)", query: "Why did the bulk upload fail for ticket TKT-502? Past ticket TKT-451 says limit is 3k. True?" },
+    { tag: "SwiftShip Webhook", label: "TKT-503 Webhook Defect (KI-211)", query: "Investigate ticket TKT-503: SwiftShip status stuck in BOOKED after pickup." },
+    { tag: "Cross-Account Triage", label: "Active Operational Issues & Defect Audit", query: "What active known issues or platform defects are currently affecting customer shipments?" }
+  ],
+  int_manager: [
+    { tag: "Manager Override", label: "Review Service Credit > ₹1,000", query: "Review service credit request for INR 1,500 on order ORD-1004. Approve or reject?" },
+    { tag: "SLA Escalation", label: "Escalate Breached TKT-501 to Tier-2", query: "Prepare an urgent escalation for breached ticket TKT-501 to Tier-2 Engineering." },
+    { tag: "Multi-Tenant Audit", label: "Cross-Account Open Tickets Audit", query: "List all open tickets across all customer accounts and highlight any active SLA breaches." },
+    { tag: "Defect Mitigation", label: "Summary of KI-208, KI-211 & Workarounds", query: "Summarize active engineering known issues and temporary workarounds for support staff." }
+  ]
+};
+
 let currentPersonaKey = "cust_northstar";
 let sessionId = `sess_${Math.random().toString(36).substring(2, 10)}`;
 let conversationHistory = [];
@@ -75,6 +112,7 @@ const accIdVal = document.getElementById("acc-id-val");
 const accNameVal = document.getElementById("acc-name-val");
 const accCsmVal = document.getElementById("acc-csm-val");
 const accAgrVal = document.getElementById("acc-agr-val");
+const quickPromptList = document.getElementById("quick-prompt-list");
 const chatMessages = document.getElementById("chat-messages");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
@@ -83,6 +121,28 @@ const telemetryTray = document.getElementById("telemetry-tray");
 const telemetryBadges = document.getElementById("telemetry-badges");
 const citationsList = document.getElementById("citations-list");
 const citationCount = document.getElementById("citation-count");
+
+// Render persona-specific scenario buttons
+function renderPersonaScenarios(key) {
+  if (!quickPromptList) return;
+  quickPromptList.innerHTML = "";
+  const scenarios = PERSONA_SCENARIOS[key] || PERSONA_SCENARIOS.cust_northstar;
+
+  scenarios.forEach((sc) => {
+    const btn = document.createElement("button");
+    btn.className = "quick-btn";
+    btn.setAttribute("data-query", sc.query);
+    btn.innerHTML = `
+      <span class="q-tag">${escapeHTML(sc.tag)}</span>
+      <span class="q-text">${escapeHTML(sc.label)}</span>
+    `;
+    btn.addEventListener("click", () => {
+      chatInput.value = sc.query;
+      submitUserQuery(sc.query);
+    });
+    quickPromptList.appendChild(btn);
+  });
+}
 
 // Initialize Persona UI
 function updatePersonaUI(key) {
@@ -99,22 +159,12 @@ function updatePersonaUI(key) {
   accCsmVal.innerText = cfg.csm;
   accAgrVal.innerText = cfg.agreement;
 
+  renderPersonaScenarios(key);
   appendSystemNotice(`Switched context to: <strong>${cfg.userName}</strong> (${cfg.accountName}) [Role: ${cfg.role}]`);
 }
 
 personaSelect.addEventListener("change", (e) => {
   updatePersonaUI(e.target.value);
-});
-
-// Quick prompt click handler
-document.querySelectorAll(".quick-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const query = btn.getAttribute("data-query");
-    if (query) {
-      chatInput.value = query;
-      submitUserQuery(query);
-    }
-  });
 });
 
 // Chat submission handler

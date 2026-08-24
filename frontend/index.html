@@ -84,27 +84,8 @@
           <div class="panel-header">
             <h3>Assessment Scenarios</h3>
           </div>
-          <div class="quick-prompt-list">
-            <button class="quick-btn" data-query="Can I cancel order ORD-1001? Is there any cancellation fee?">
-              <span class="q-tag">Contract Precedence</span>
-              <span class="q-text">Cancel ORD-1001 (Northstar Agreement INR 0 Fee)</span>
-            </button>
-            <button class="quick-btn" data-query="Can I cancel order ORD-1002?">
-              <span class="q-tag">Post-Pickup RTO</span>
-              <span class="q-text">Cancel ORD-1002 (Picked-Up Status Rejection)</span>
-            </button>
-            <button class="quick-btn" data-query="What is the priority, SLA status, and required action for ticket TKT-501?">
-              <span class="q-tag">SLA Breach / P1</span>
-              <span class="q-text">TKT-501 Outage (15-min SLA Breach Alert)</span>
-            </button>
-            <button class="quick-btn" data-query="Why did our CSV bulk upload fail for ticket TKT-502? What is our account limit?">
-              <span class="q-tag">Known Issue KI-208</span>
-              <span class="q-text">TKT-502 CSV Defect & Fix Resolution</span>
-            </button>
-            <button class="quick-btn" data-query="Is order ORD-2002 eligible for a failed-pickup service credit? What is the credit amount?">
-              <span class="q-tag">Service Credit</span>
-              <span class="q-text">ORD-2002 Missed Pickup (INR 300 Fixed Credit)</span>
-            </button>
+          <div class="quick-prompt-list" id="quick-prompt-list">
+            <!-- Dynamically populated based on active persona -->
           </div>
         </div>
       </aside>
