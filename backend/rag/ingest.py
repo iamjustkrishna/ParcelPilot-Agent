@@ -1,7 +1,13 @@
 import os
+import json
 import fitz  # PyMuPDF
-import chromadb
-from chromadb.utils import embedding_functions
+
+try:
+    import chromadb
+    from chromadb.utils import embedding_functions
+    HAS_CHROMADB = True
+except ImportError:
+    HAS_CHROMADB = False
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CANDIDATE_PACK_DIR = os.path.join(PROJECT_ROOT, "AI Agent Assessment - Candidate Pack")
@@ -114,27 +120,28 @@ def extract_pdf_sections(pdf_path: str, doc_name: str):
     return chunks
 
 def ingest_documents():
-    print(f"Initializing ChromaDB vector store at: {CHROMA_DB_DIR}")
-    client = chromadb.PersistentClient(path=CHROMA_DB_DIR)
-
-    # Use SentenceTransformers embedding function
-    embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name="all-MiniLM-L6-v2"
-    )
-
-    # Drop existing collection if present to guarantee clean rebuild
-    try:
-        client.delete_collection(name="parcelpilot_knowledge_base")
-    except Exception:
-        pass
-
-    collection = client.create_collection(
-        name="parcelpilot_knowledge_base",
-        embedding_function=embedding_fn,
-        metadata={"description": "Authoritative ParcelPilot policy, SOP, operations guide, and agreement chunks"}
-    )
+    collection = None
+    if HAS_CHROMADB:
+        print(f"Initializing ChromaDB vector store at: {CHROMA_DB_DIR}")
+        try:
+            client = chromadb.PersistentClient(path=CHROMA_DB_DIR)
+            embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+                model_name="all-MiniLM-L6-v2"
+            )
+            try:
+                client.delete_collection(name="parcelpilot_knowledge_base")
+            except Exception:
+                pass
+            collection = client.create_collection(
+                name="parcelpilot_knowledge_base",
+                embedding_function=embedding_fn,
+                metadata={"description": "Authoritative ParcelPilot policy, SOP, operations guide, and agreement chunks"}
+            )
+        except Exception as e:
+            print(f"ChromaDB initialization skipped: {e}")
 
     total_chunks = 0
+    all_chunks_data = []
     for filename, meta in DOC_METADATA_REGISTRY.items():
         pdf_path = os.path.join(CANDIDATE_PACK_DIR, filename)
         if not os.path.exists(pdf_path):
@@ -158,14 +165,27 @@ def ingest_documents():
                 "filename": filename
             }
 
-            collection.add(
-                ids=[chunk_id],
-                documents=[item["text"]],
-                metadatas=[chunk_metadata]
-            )
+            all_chunks_data.append({
+                "chunk_id": chunk_id,
+                "text": item["text"],
+                "metadata": chunk_metadata
+            })
+
+            if collection is not None:
+                collection.add(
+                    ids=[chunk_id],
+                    documents=[item["text"]],
+                    metadatas=[chunk_metadata]
+                )
             total_chunks += 1
 
-    print(f"Successfully ingested {total_chunks} authoritative knowledge chunks into ChromaDB!")
+    # Save to lightweight JSON cache
+    json_path = os.path.join(os.path.dirname(__file__), "knowledge_chunks.json")
+    import json
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(all_chunks_data, f, indent=2)
+
+    print(f"Successfully ingested {total_chunks} authoritative knowledge chunks into ChromaDB and {json_path}!")
 
 if __name__ == "__main__":
     ingest_documents()

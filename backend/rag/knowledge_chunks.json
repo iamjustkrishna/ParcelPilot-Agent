@@ -1,0 +1,452 @@
+[
+  {
+    "chunk_id": "DOC-POL-V3_chunk_1",
+    "text": "[ParcelPilot Support Policy v3 - General Overview]\n--- Page 1 ---\nParcelPilot Support Policy v3",
+    "metadata": {
+      "doc_id": "DOC-POL-V3",
+      "doc_name": "ParcelPilot Support Policy v3",
+      "doc_type": "policy",
+      "status": "CURRENT",
+      "authority_weight": 70,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-05-01",
+      "section": "General Overview",
+      "filename": "01_Support_Policy_v3_CURRENT.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V3_chunk_2",
+    "text": "[ParcelPilot Support Policy v3 - Status: CURRENT]\nStatus: CURRENT\nEffective: 1 May 2026\nSupersedes: Support Policy v2",
+    "metadata": {
+      "doc_id": "DOC-POL-V3",
+      "doc_name": "ParcelPilot Support Policy v3",
+      "doc_type": "policy",
+      "status": "CURRENT",
+      "authority_weight": 70,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-05-01",
+      "section": "Status: CURRENT",
+      "filename": "01_Support_Policy_v3_CURRENT.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V3_chunk_3",
+    "text": "[ParcelPilot Support Policy v3 - 1. Scope and source precedence]\n1. Scope and source precedence\nThis policy defines default support severity and response targets. A signed customer agreement may override these\ndefaults. When sources conflict, use the signed customer agreement first, then the current support policy, then\ncurrent product documentation. Historical tickets and internal notes are context only and may contain incorrect past\nguidance.",
+    "metadata": {
+      "doc_id": "DOC-POL-V3",
+      "doc_name": "ParcelPilot Support Policy v3",
+      "doc_type": "policy",
+      "status": "CURRENT",
+      "authority_weight": 70,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-05-01",
+      "section": "1. Scope and source precedence",
+      "filename": "01_Support_Policy_v3_CURRENT.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V3_chunk_4",
+    "text": "[ParcelPilot Support Policy v3 - 2. Severity definitions]\n2. Severity definitions\n\u25cf\u200b P1 - Critical: Complete production outage preventing all shipment creation for a customer, confirmed security\nincident or suspected credential exposure, or another event causing immediate material business risk with no\nworkaround.\n\u25cf\u200b P2 - High: Major feature unavailable or materially degraded for a customer, but core operations remain\npossible or a workaround exists.\n\u25cf\u200b P3 - Normal: Minor defect, how-to question, configuration request, or issue with limited operational impact.",
+    "metadata": {
+      "doc_id": "DOC-POL-V3",
+      "doc_name": "ParcelPilot Support Policy v3",
+      "doc_type": "policy",
+      "status": "CURRENT",
+      "authority_weight": 70,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-05-01",
+      "section": "2. Severity definitions",
+      "filename": "01_Support_Policy_v3_CURRENT.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V3_chunk_5",
+    "text": "[ParcelPilot Support Policy v3 - 3. Default first-response targets]\n3. Default first-response targets\nPlan\nP1\nP2\nP3\nEnterprise\n30 minutes, 24x7\n2 hours\n1 business day\nGrowth\n2 business hours\n4 business hours\n2 business days\nStandard\n4 business hours\n1 business day\n2 business days",
+    "metadata": {
+      "doc_id": "DOC-POL-V3",
+      "doc_name": "ParcelPilot Support Policy v3",
+      "doc_type": "policy",
+      "status": "CURRENT",
+      "authority_weight": 70,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-05-01",
+      "section": "3. Default first-response targets",
+      "filename": "01_Support_Policy_v3_CURRENT.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V3_chunk_6",
+    "text": "[ParcelPilot Support Policy v3 - 4. Escalation]\n4. Escalation\nP1 incidents should be escalated immediately. If a response target is already breached, the agent should clearly\nstate the breach and recommend escalation rather than hiding uncertainty.",
+    "metadata": {
+      "doc_id": "DOC-POL-V3",
+      "doc_name": "ParcelPilot Support Policy v3",
+      "doc_type": "policy",
+      "status": "CURRENT",
+      "authority_weight": 70,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-05-01",
+      "section": "4. Escalation",
+      "filename": "01_Support_Policy_v3_CURRENT.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V2-DEPRECATED_chunk_1",
+    "text": "[ParcelPilot Support Policy v2 (DEPRECATED) - General Overview]\n--- Page 1 ---\nParcelPilot Support Policy v2",
+    "metadata": {
+      "doc_id": "DOC-POL-V2-DEPRECATED",
+      "doc_name": "ParcelPilot Support Policy v2 (DEPRECATED)",
+      "doc_type": "policy",
+      "status": "DEPRECATED",
+      "authority_weight": 0,
+      "account_scope": "GLOBAL",
+      "effective_date": "2025-01-01",
+      "section": "General Overview",
+      "filename": "02_Support_Policy_v2_DEPRECATED.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-POL-V2-DEPRECATED_chunk_2",
+    "text": "[ParcelPilot Support Policy v2 (DEPRECATED) - Status: DEPRECATED - DO NOT USE FOR CURRENT REQUESTS]\nStatus: DEPRECATED - DO NOT USE FOR CURRENT REQUESTS\nEffective: 1 January 2025\nSuperseded by: Support Policy v3 effective 1 May 2026\nSeverity and response targets\nP1 covers complete production outages and severe security incidents. P2 covers major feature degradation. P3\ncovers minor issues and questions.\nPlan\nP1\nP2\nP3\nEnterprise\n1 hour\n4 hours\n2 business days\nGrowth\n4 business hours\n1 business day\n3 business days\nStandard\n8 business hours\n2 business days\n3 business days\nNote: This file is intentionally retained for historical reference and must not be used as current policy.",
+    "metadata": {
+      "doc_id": "DOC-POL-V2-DEPRECATED",
+      "doc_name": "ParcelPilot Support Policy v2 (DEPRECATED)",
+      "doc_type": "policy",
+      "status": "DEPRECATED",
+      "authority_weight": 0,
+      "account_scope": "GLOBAL",
+      "effective_date": "2025-01-01",
+      "section": "Status: DEPRECATED - DO NOT USE FOR CURRENT REQUESTS",
+      "filename": "02_Support_Policy_v2_DEPRECATED.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-SOP-V4_chunk_1",
+    "text": "[ParcelPilot Cancellation & Service Credit SOP v4 - General Overview]\n--- Page 1 ---\nParcelPilot Cancellation & Service Credit SOP v4",
+    "metadata": {
+      "doc_id": "DOC-SOP-V4",
+      "doc_name": "ParcelPilot Cancellation & Service Credit SOP v4",
+      "doc_type": "sop",
+      "status": "CURRENT",
+      "authority_weight": 80,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-06-15",
+      "section": "General Overview",
+      "filename": "03_Cancellation_and_Service_Credit_SOP_v4.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-SOP-V4_chunk_2",
+    "text": "[ParcelPilot Cancellation & Service Credit SOP v4 - Status: CURRENT]\nStatus: CURRENT\nEffective: 15 June 2026",
+    "metadata": {
+      "doc_id": "DOC-SOP-V4",
+      "doc_name": "ParcelPilot Cancellation & Service Credit SOP v4",
+      "doc_type": "sop",
+      "status": "CURRENT",
+      "authority_weight": 80,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-06-15",
+      "section": "Status: CURRENT",
+      "filename": "03_Cancellation_and_Service_Credit_SOP_v4.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-SOP-V4_chunk_3",
+    "text": "[ParcelPilot Cancellation & Service Credit SOP v4 - 1. Order cancellation]\n1. Order cancellation\n\u25cf\u200b DRAFT: May be cancelled with no fee.\n\u25cf\u200b BOOKED, not yet PICKED_UP: May be cancelled. No fee within 30 minutes of booking. After 30 minutes,\ncharge INR 250 unless a customer agreement explicitly waives the cancellation fee.\n\u25cf\u200b PICKED_UP: Do not cancel. Use the return-to-origin workflow if the customer wants the parcel returned.\n\u25cf\u200b DELIVERED: Cannot be cancelled.",
+    "metadata": {
+      "doc_id": "DOC-SOP-V4",
+      "doc_name": "ParcelPilot Cancellation & Service Credit SOP v4",
+      "doc_type": "sop",
+      "status": "CURRENT",
+      "authority_weight": 80,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-06-15",
+      "section": "1. Order cancellation",
+      "filename": "03_Cancellation_and_Service_Credit_SOP_v4.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-SOP-V4_chunk_4",
+    "text": "[ParcelPilot Cancellation & Service Credit SOP v4 - 2. Failed-pickup service credits]\n2. Failed-pickup service credits\nUnder the default policy, a customer is eligible for a service credit when the pickup is more than 2 hours past the end\nof the scheduled pickup window, the carrier is at fault, and there is no customer-caused issue. The default credit is\nthe lower of INR 500 or 10% of the shipment fee.\nA signed customer agreement may replace the default delay threshold, credit amount, or cap.",
+    "metadata": {
+      "doc_id": "DOC-SOP-V4",
+      "doc_name": "ParcelPilot Cancellation & Service Credit SOP v4",
+      "doc_type": "sop",
+      "status": "CURRENT",
+      "authority_weight": 80,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-06-15",
+      "section": "2. Failed-pickup service credits",
+      "filename": "03_Cancellation_and_Service_Credit_SOP_v4.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-SOP-V4_chunk_5",
+    "text": "[ParcelPilot Cancellation & Service Credit SOP v4 - 3. Approval and uncertainty]\n3. Approval and uncertainty\n\u25cf\u200b Any individual credit above INR 1,000 requires manager approval.\n\u25cf\u200b Do not promise a credit when carrier fault, pickup timing, or customer fault is unknown.\n\u25cf\u200b When data conflicts, identify the conflict and request verification before a state-changing action.",
+    "metadata": {
+      "doc_id": "DOC-SOP-V4",
+      "doc_name": "ParcelPilot Cancellation & Service Credit SOP v4",
+      "doc_type": "sop",
+      "status": "CURRENT",
+      "authority_weight": 80,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-06-15",
+      "section": "3. Approval and uncertainty",
+      "filename": "03_Cancellation_and_Service_Credit_SOP_v4.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_1",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - General Overview]\n--- Page 1 ---\nParcelPilot Product Operations Guide",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "General Overview",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_2",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - Status: CURRENT]\nStatus: CURRENT\nUpdated: 14 August 2026",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "Status: CURRENT",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_3",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - 1. Plan capabilities]\n1. Plan capabilities\n\u25cf\u200b Bulk Upload: Available on Growth and Enterprise. Supported file size is up to 5,000 rows per CSV.\n\u25cf\u200b Standard: Bulk Upload is not included.\n\u25cf\u200b Shipment status: BOOKED means the shipment is created but ParcelPilot has not yet received a pickup\nconfirmation. PICKED_UP means carrier pickup has been confirmed.",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "1. Plan capabilities",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_4",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - KI-208 - Bulk Upload failures on large CSVs]\nKI-208 - Bulk Upload failures on large CSVs\nOpened: 10 August 2026",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "KI-208 - Bulk Upload failures on large CSVs",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_5",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - Status: Investigating]\nStatus: Investigating\nSome Growth and Enterprise customers experience intermittent failures on CSV uploads above approximately 3,000\nrows, even though the supported product limit remains 5,000 rows. Workaround: split the upload into files below\n3,000 rows. Individual shipment creation is unaffected.",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "Status: Investigating",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_6",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - KI-211 - SwiftShip pickup webhook delay]\nKI-211 - SwiftShip pickup webhook delay\nOpened: 12 August 2026",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "KI-211 - SwiftShip pickup webhook delay",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_7",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - Status: Monitoring]\nStatus: Monitoring\nSwiftShip pickup confirmation webhooks can arrive up to 20 minutes late. A parcel may physically be collected while\nParcelPilot still shows BOOKED. Before telling a customer that a pickup did not occur, verify the carrier status or wait\nthrough the known delay window.",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "Status: Monitoring",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-PROD-GUIDE_chunk_8",
+    "text": "[ParcelPilot Product Operations Guide & Known Issues - KI-176 - Address validation: Resolved 18 July 2026. Do not use this resolved issue to explain new incidents unless]\nKI-176 - Address validation: Resolved 18 July 2026. Do not use this resolved issue to explain new incidents unless\nevidence specifically matches it.",
+    "metadata": {
+      "doc_id": "DOC-PROD-GUIDE",
+      "doc_name": "ParcelPilot Product Operations Guide & Known Issues",
+      "doc_type": "operations_guide",
+      "status": "CURRENT",
+      "authority_weight": 60,
+      "account_scope": "GLOBAL",
+      "effective_date": "2026-08-14",
+      "section": "KI-176 - Address validation: Resolved 18 July 2026. Do not use this resolved issue to explain new incidents unless",
+      "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-NORTHSTAR_chunk_1",
+    "text": "[Northstar Logistics Enterprise Agreement - General Overview]\n--- Page 1 ---\nParcelPilot - Northstar Logistics Enterprise\nAgreement\nAccount: ACCT-001\nCustomer: Northstar Logistics\nTerm: 1 January 2026 to 31 December 2026",
+    "metadata": {
+      "doc_id": "DOC-AGR-NORTHSTAR",
+      "doc_name": "Northstar Logistics Enterprise Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-001",
+      "effective_date": "2026-01-01",
+      "section": "General Overview",
+      "filename": "05_Northstar_Logistics_Enterprise_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-NORTHSTAR_chunk_2",
+    "text": "[Northstar Logistics Enterprise Agreement - 1. Support terms]\n1. Support terms\nFor Northstar Logistics, the following first-response targets replace ParcelPilot's standard support-policy targets:\n\u25cf\u200b P1: 15 minutes, 24x7\n\u25cf\u200b P2: 1 hour\n\u25cf\u200b P3: 8 business hours",
+    "metadata": {
+      "doc_id": "DOC-AGR-NORTHSTAR",
+      "doc_name": "Northstar Logistics Enterprise Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-001",
+      "effective_date": "2026-01-01",
+      "section": "1. Support terms",
+      "filename": "05_Northstar_Logistics_Enterprise_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-NORTHSTAR_chunk_3",
+    "text": "[Northstar Logistics Enterprise Agreement - 2. Shipment cancellation]\n2. Shipment cancellation\nNorthstar may cancel any BOOKED shipment before pickup with no cancellation fee, regardless of how long ago the\nshipment was booked. Once a shipment is PICKED_UP, the standard return-to-origin process applies.",
+    "metadata": {
+      "doc_id": "DOC-AGR-NORTHSTAR",
+      "doc_name": "Northstar Logistics Enterprise Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-001",
+      "effective_date": "2026-01-01",
+      "section": "2. Shipment cancellation",
+      "filename": "05_Northstar_Logistics_Enterprise_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-NORTHSTAR_chunk_4",
+    "text": "[Northstar Logistics Enterprise Agreement - 3. Service credits]\n3. Service credits\nMonthly aggregate service credits are capped at INR 5,000. Unless this agreement states otherwise, the current\nParcelPilot service-credit SOP applies.",
+    "metadata": {
+      "doc_id": "DOC-AGR-NORTHSTAR",
+      "doc_name": "Northstar Logistics Enterprise Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-001",
+      "effective_date": "2026-01-01",
+      "section": "3. Service credits",
+      "filename": "05_Northstar_Logistics_Enterprise_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-NORTHSTAR_chunk_5",
+    "text": "[Northstar Logistics Enterprise Agreement - 4. Account contact]\n4. Account contact\nDedicated CSM: Priya Mehta.",
+    "metadata": {
+      "doc_id": "DOC-AGR-NORTHSTAR",
+      "doc_name": "Northstar Logistics Enterprise Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-001",
+      "effective_date": "2026-01-01",
+      "section": "4. Account contact",
+      "filename": "05_Northstar_Logistics_Enterprise_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-LUMENWORKS_chunk_1",
+    "text": "[LumenWorks Service Agreement - General Overview]\n--- Page 1 ---\nParcelPilot - LumenWorks Service Agreement\nAccount: ACCT-002\nCustomer: LumenWorks\nPlan: Growth\nTerm: 1 March 2026 to 28 February 2027",
+    "metadata": {
+      "doc_id": "DOC-AGR-LUMENWORKS",
+      "doc_name": "LumenWorks Service Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-002",
+      "effective_date": "2026-03-01",
+      "section": "General Overview",
+      "filename": "06_LumenWorks_Service_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-LUMENWORKS_chunk_2",
+    "text": "[LumenWorks Service Agreement - 1. Support terms]\n1. Support terms\n\u25cf\u200b P1: 2 business hours\n\u25cf\u200b P2: 4 business hours\n\u25cf\u200b P3: 2 business days\n\u25cf\u200b No weekend or after-hours support coverage.",
+    "metadata": {
+      "doc_id": "DOC-AGR-LUMENWORKS",
+      "doc_name": "LumenWorks Service Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-002",
+      "effective_date": "2026-03-01",
+      "section": "1. Support terms",
+      "filename": "06_LumenWorks_Service_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-LUMENWORKS_chunk_3",
+    "text": "[LumenWorks Service Agreement - 2. Cancellation terms]\n2. Cancellation terms\nNo special cancellation-fee waiver applies. Use the current ParcelPilot Cancellation & Service Credit SOP.",
+    "metadata": {
+      "doc_id": "DOC-AGR-LUMENWORKS",
+      "doc_name": "LumenWorks Service Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-002",
+      "effective_date": "2026-03-01",
+      "section": "2. Cancellation terms",
+      "filename": "06_LumenWorks_Service_Agreement.pdf"
+    }
+  },
+  {
+    "chunk_id": "DOC-AGR-LUMENWORKS_chunk_4",
+    "text": "[LumenWorks Service Agreement - 3. Failed-pickup credits]\n3. Failed-pickup credits\nIf a pickup is more than 4 hours past the end of the scheduled pickup window, the carrier is at fault, and the customer\nis not at fault, LumenWorks receives a fixed INR 300 service credit. This clause replaces the default failed-pickup\ncredit amount and timing threshold in the SOP.",
+    "metadata": {
+      "doc_id": "DOC-AGR-LUMENWORKS",
+      "doc_name": "LumenWorks Service Agreement",
+      "doc_type": "contract",
+      "status": "CURRENT",
+      "authority_weight": 100,
+      "account_scope": "ACCT-002",
+      "effective_date": "2026-03-01",
+      "section": "3. Failed-pickup credits",
+      "filename": "06_LumenWorks_Service_Agreement.pdf"
+    }
+  }
+]
