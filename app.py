@@ -4,6 +4,20 @@ import uuid
 import gradio as gr
 from dotenv import load_dotenv
 
+# Safe Monkeypatch for Gradio 4.x schema generator bug when handling boolean additionalProperties
+try:
+    import gradio_client.utils as gc_utils
+    _orig_func = gc_utils._json_schema_to_python_type
+    def _safe_json_schema_to_python_type(schema, defs=None):
+        if isinstance(schema, bool):
+            return "dict" if schema else "None"
+        if not isinstance(schema, dict):
+            return "Any"
+        return _orig_func(schema, defs)
+    gc_utils._json_schema_to_python_type = _safe_json_schema_to_python_type
+except Exception:
+    pass
+
 load_dotenv()
 
 # Ensure database and vector index exist on cold start
@@ -180,7 +194,7 @@ with gr.Blocks(title="ParcelPilot AI — Operations & Support", css=CUSTOM_CSS, 
                 badge_text = PERSONAS[selected]["badge"]
                 return f"🔹 *{badge_text}*", [], {"session_id": f"hf_sess_{uuid.uuid4().hex[:8]}", "pending_token": None}, "", ""
 
-            chatbot = gr.Chatbot(label="ParcelPilot Agent Dialogue", height=460, show_copy_button=True)
+            chatbot = gr.Chatbot(label="ParcelPilot Agent Dialogue", height=460, show_copy_button=True, type="tuples")
 
             with gr.Row():
                 user_input = gr.Textbox(
