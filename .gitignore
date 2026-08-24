@@ -15,7 +15,7 @@ chroma_db/
 *.sqlite
 *.sqlite3
 
-# Logs and scratch files
+# Logs, archives, and scratch files
 *.log
 *.zip
 scratch/
